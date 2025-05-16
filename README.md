@@ -52,6 +52,6 @@ pill-identifier-app
   
 - Here is an example of the app in use:
 
-  ![Pill Identifier App Screenshot](static/images/Pill_Test_Screen.jpg)
+  ![Pill Identifier App Screenshot](Pill_Test_Screen.jpg)
 
 - After uploading, the application will display the predicted class of the pill along with the confidence level of the prediction.
