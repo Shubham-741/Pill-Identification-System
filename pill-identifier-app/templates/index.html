@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pill Identifier</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #cfe0fc, #dbeafe);
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      max-width: 500px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.4);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(15px);
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .title {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 600;
+      color: #4338ca;
+      margin-bottom: 20px;
+    }
+
+    .pill-icon {
+      display: block;
+      margin: 0 auto 15px;
+      width: 70px;
+    }
+
+    label {
+      font-weight: 500;
+      color: #333;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      background-color: #4f46e5;
+      color: white;
+      border: none;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 12px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #4338ca;
+      transform: scale(1.03);
+    }
+
+    .result {
+      margin-top: 30px;
+      background: #ffffffcc;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .result h3 {
+      margin-top: 0;
+      color: #4f46e5;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .result p {
+      margin: 5px 0;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <img src="/static/images/medicine.png" alt="Pill Icon" class="pill-icon" />
+
+    <h1 class="title">Pill Identifier</h1>
+
+    <form action="/" method="post" enctype="multipart/form-data">
+      <label for="file">Upload a pill image:</label>
+      <input type="file" id="file" name="file" required />
+
+      <button type="submit">🔍 Identify Pill</button>
+    </form>
+
+    {% if prediction %}
+      <div class="result">
+        <h3>Prediction Result</h3>
+        <img src="{{ prediction.image_url }}" alt="Uploaded Pill" style="width: 80px; margin-bottom: 10px; border-radius: 8px;" />
+        <p><strong>Predicted Class:</strong> {{ prediction.class }}</p>
+        <p><strong>Confidence:</strong> {{ prediction.confidence }}</p>
+      </div>
+    {% endif %}
+  </div>
+
+</body>
+</html>
