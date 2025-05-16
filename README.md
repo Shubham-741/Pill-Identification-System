@@ -7,21 +7,23 @@ This project is a Flask web application that allows users to upload images of pi
 ```
 pill-identifier-app
 ├── app.py                  # Main application file for the Flask server
-├── requirements.txt        # Lists the dependencies required for the project
+|
 ├── model                   # Directory containing the trained model
 │   └── pill_identifier_model.h5
 ├── static                  # Directory for static files
 │   └── uploads             # Directory for temporarily storing uploaded images
 ├── templates               # Directory for HTML templates
 │   └── index.html         # Frontend template for user interaction
-└── README.md               # Documentation for the project
+
 ```
 
 ## Setup Instructions
 
 1. **Clone the repository**:
    ```
-   git clone <repository-url>
+   git clonehttps://github.com/Shubham-741/Pill-Identification-System
+   run the pill_identification.ipynb code
+   This will create a pill_identifier_model.h5 model. Use it in your app.py
    cd pill-identifier-app
    ```
 
@@ -47,8 +49,9 @@ pill-identifier-app
 ## Usage
 
 - On the homepage, you can upload an image of a pill.
+  
+- Here is an example of the app in use:
+
+  ![Pill Identifier App Screenshot](Pill Test Screen.jpg)
+
 - After uploading, the application will display the predicted class of the pill along with the confidence level of the prediction.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
